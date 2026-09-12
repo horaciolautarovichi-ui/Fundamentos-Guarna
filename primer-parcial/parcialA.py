@@ -82,7 +82,7 @@ elegir_comidas(comidas, prohibidos_2)  # --> ['ravioles', 'pizza']
 Testea la función usando doctest, para 2 listas de comidas de al menos 4 comidas cada una; y 3 listas de ingredientes prohibidos, con al menos 2 ingredientes cada una. Generá 4 casos de prueba diferentes."""
 
 
-def elegir_comidas(comidas : list, prohibidos:  list) -> list:
+def elegir_comidas(comidas ,prohibidos):
 
     # Modulo doctest para verificar los casos de prueba requeridos por la consigna
     """
@@ -167,3 +167,12 @@ Procese esa lista y genere un diccionario con clave: puesto y valores: total_can
 
 Luego, debe mostrar por pantalla, los puestos y su promedio salarial, ordenados de mayor a menor por promedios salariales. La salida debe estar formateada, de forma que se visualice una columna para los puestos, y otra para el promedio salarial.
 """
+
+def obtener_lista_salarios(salarios):
+    resultado = {}
+
+    for salario in salarios:
+        print(salario)
+
+salario =  ["GlobalTek", "Desarrollador", 55, 1800], ["GlobalTek", "Tester", 75, 1300], ["ITSol", "Desarrollador", 44, 1500]
+obtener_lista_salarios(salario)
