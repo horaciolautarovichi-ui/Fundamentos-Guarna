@@ -34,9 +34,23 @@ def num_pares(lista):
         print(lista)
 
 def main():
-    lista =  ingresar_lista()
-   
-    mostrar_lista(lista)
-    num_pares(lista)
+    m1 = [
+        [1,2,3],
+        [4,5,6],
+        [7,8,9]
+    ]
+    m2 = [
+        [1,2,3],
+        [4,5,6],
+        [7,8,9]
+    ]
+    resultante = []
+
+    for i in range(0,len(m1)):
+        for j in range(0, len(m1[0])):
+            
+
+
+
 
 main()

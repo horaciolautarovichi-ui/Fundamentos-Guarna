@@ -10,10 +10,16 @@
 def ejercicio1(M):
    filas = len(M)
    columnas = len(M[0])
+
    cuadrada = False
+
    if filas == columnas:
       cuadrada = True
+      
    return cuadrada
 
-   
+
+    
+
+
      

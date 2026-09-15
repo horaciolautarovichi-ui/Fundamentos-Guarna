@@ -169,10 +169,22 @@ Luego, debe mostrar por pantalla, los puestos y su promedio salarial, ordenados 
 """
 
 def obtener_lista_salarios(salarios):
-    resultado = {}
 
-    for salario in salarios:
-        print(salario)
 
-salario =  ["GlobalTek", "Desarrollador", 55, 1800], ["GlobalTek", "Tester", 75, 1300], ["ITSol", "Desarrollador", 44, 1500]
-obtener_lista_salarios(salario)
+    resultado = {} ##declaramos el diccionario resultado donde se almacena la info final
+
+    for salario in salarios: ##recorremos todos los puestos 
+
+        puesto = salario[1]
+        cantidad = salario[2]
+        sueldo = salario[3]
+
+        if puesto in resultado: ##si el puesto ya esta cargado sumamos la info
+            resultado[puesto][0] += cantidad
+            resultado[puesto][1] += cantidad * sueldo
+        else: ## sino lo creamos con la info del puesto actual
+            resultado[puesto] = [cantidad, cantidad * sueldo]
+
+    return resultado
+
+
