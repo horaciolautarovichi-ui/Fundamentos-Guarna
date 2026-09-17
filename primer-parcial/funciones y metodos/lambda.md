@@ -98,7 +98,7 @@ sorted(personas, key=obtener_edad)
 
 ## Relación con el PEP de la cátedra
 
-El **PEP 75.40 no establece reglas específicas sobre `lambda`**. Sin embargo, sus recomendaciones generales priorizan la claridad, los nombres representativos, la responsabilidad única y evitar código difícil de seguir.
+El **PEP no establece reglas específicas sobre `lambda`**. Sin embargo, sus recomendaciones generales priorizan la claridad, los nombres representativos, la responsabilidad única y evitar código difícil de seguir.
 Por eso, la regla práctica es:
 
 > **`lambda` para funciones simples y puntuales; `def` para funciones complejas, reutilizables o que necesiten un nombre.**

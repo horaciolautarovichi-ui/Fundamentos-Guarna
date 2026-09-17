@@ -26,12 +26,12 @@ con el formato:
 def morfologica(frase_morfologica):
 
     diccionario = {}
-    listado = []
 
     for frase in frase_morfologica:
 
         tipo =  frase[1]
         palabra = frase[0].lower()
+
         #si el tipo no esta en el diccionario lo creamos
 
         if tipo not in diccionario:
@@ -45,9 +45,23 @@ def morfologica(frase_morfologica):
             diccionario[tipo][2] += 1
         elif palabra[0] in "aeiouáéíóú" and palabra[-1] in "aeiouáéíóú":
             diccionario[tipo][3] += 1
-            listado.append([tipo,palabra])
-    
-  
-    ordenado =  listado.sorterd()
-    print(ordenado)
+
     return diccionario
+
+def mostrar_vocales(diccionario):
+    listado = []
+
+    for categoria in diccionario:
+        cantidad = diccionario[categoria][3]
+        if cantidad > 0:
+            listado.append([cantidad],[categoria]) #primero cantidad para q se ordene numericamente
+
+
+    #en este punto ya tenemos la lista cargada
+    listado.sort(reverse=True) ##menor a mayor 
+
+    print("tipo - cantidad")
+    for lista in listado:
+        print(f"{lista[1]} - {lista[0]}")
+
+    

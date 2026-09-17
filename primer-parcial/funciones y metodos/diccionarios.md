@@ -65,3 +65,194 @@ Sintaxis abreviada para definir funciones mínimas en una sola línea:
 # Sintaxis: lambda argumento: resultado
 suma = lambda x, y: x + y  # Equivalente a def suma(x, y): return x + y
 
+###resumen para el parcial 
+
+# Diccionarios 
+
+## Crear
+
+```python
+dic = {}
+```
+
+Agregar o modificar:
+
+```python
+dic[clave] = valor
+```
+
+Ejemplo:
+
+```python
+dic["Desarrollador"] = [50, 90000]
+```
+
+---
+
+## Consultar
+
+```python
+dic[clave]
+```
+
+Si el valor es una lista:
+
+```python
+dic[clave][0]
+dic[clave][1]
+```
+
+---
+
+## Comprobar si existe
+
+```python
+if clave in dic:
+```
+
+Muy usado para acumular:
+
+```python
+if clave not in dic:
+    dic[clave] = [0, 0]
+
+dic[clave][0] += cantidad
+dic[clave][1] += total
+```
+
+---
+
+## Recorrer
+
+### Solo claves
+
+```python
+for clave in dic:
+    print(clave)
+```
+
+### Clave y valor
+
+```python
+for clave, valor in dic.items():
+    print(clave, valor)
+```
+
+### Solo valores
+
+```python
+for valor in dic.values():
+    print(valor)
+```
+
+---
+
+## Diccionario con listas
+
+Ejemplo:
+
+```python
+dic = {
+    "A": [10, 20],
+    "B": [30, 40]
+}
+```
+
+```python
+dic["A"][0] += 5
+```
+
+queda:
+
+```python
+"A": [15, 20]
+```
+
+---
+
+## Patrón típico de parcial
+
+Cuando te dicen **"agrupar por X y acumular datos"**:
+
+```python
+resultado = {}
+
+for elemento in lista:
+
+    clave = elemento[...]
+
+    if clave not in resultado:
+        resultado[clave] = [0, 0]
+
+    resultado[clave][0] += ...
+    resultado[clave][1] += ...
+```
+
+Pensalo como:
+
+**¿Cuál es mi clave? → ¿Qué tengo que guardar? → ¿Qué acumulo?**
+
+---
+
+## Ordenar
+
+Si necesitás ordenar lo que hay en el diccionario, normalmente hacés una lista auxiliar:
+
+```python
+listado = []
+
+for clave in dic:
+    listado.append([dato, clave])
+
+listado.sort(reverse=True)
+```
+
+Como `dato` está primero, ordena por ese dato.
+
+Después:
+
+```python
+for elemento in listado:
+    print(elemento[1], elemento[0])
+```
+
+---
+
+## Funciones que tenés que recordar
+
+```python
+clave in dic
+clave not in dic
+
+dic[clave]
+dic[clave] = valor
+
+for clave in dic:
+for clave, valor in dic.items()
+
+len(dic)
+
+dic.keys()
+dic.values()
+dic.items()
+```
+
+### La idea principal
+
+**Lista:** accedés por posición.
+
+```python
+lista[0]
+```
+
+**Diccionario:** accedés por clave.
+
+```python
+dic["Juan"]
+```
+
+**Diccionario + lista:** clave → varios datos.
+
+```python
+dic["Juan"][0]
+```
