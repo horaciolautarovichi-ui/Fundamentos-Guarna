@@ -35,3 +35,5 @@ def obtener_lista_salarios(salarios):
     return resultado
 
 
+
+

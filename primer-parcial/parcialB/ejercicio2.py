@@ -17,3 +17,25 @@ Ejemplos:
     elegir_comidas(comidas, prohibidos_1) ---> ["ravioles"]
     elegir_comidas(comidas, prohibidos_2) ---> ["ravioles", "pizza"]
 """
+
+def elegir_comidas(comidas, prohibidos):
+
+    permitidas = []
+   
+
+    for comida in comidas:
+
+        i = 1 #desde 1 ya q el 0 siempre es el nombre
+        es_permitida = True #dentro del for ya q por cada vuelta hay q ponerlo en permitido para q entre al while
+
+        while es_permitida and i < len(comida):
+            if comida[i] in prohibidos:
+                es_permitida = False
+            i += 1
+        if es_permitida == True:
+            permitidas.append(comida[0])
+
+    return permitidas
+
+
+

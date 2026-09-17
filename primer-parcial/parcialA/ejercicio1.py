@@ -16,10 +16,13 @@ RESTRICCIÓN: De los métodos de la clase cadena, sólo se puede usar el método
 
 def alias_bancario(alias):
 
-    valido = False
+    valido = True
+
+    cant_letras = 0
+    caracter_especial = 0
 
     primer_car = alias[0]
-    ultimo_car = alias[len(alias)-1]
+    ultimo_car = alias[-1]
 
     if len(alias) > 20 or len(alias) < 6:
         valido = False
@@ -27,19 +30,23 @@ def alias_bancario(alias):
         if primer_car in "._-" or ultimo_car in "_-.":
             valido = False
 
+    
+    if valido == True:
 
-    cant_letras = 0
-    caracter_especial = 0
+        while valido and i < len(alias):
+                    caracter = alias[i]
 
-    for caracter in alias:
-        if caracter.isalpha():
-            cant_letras += 1
-        elif caracter in ".-_":
-            caracter_especial += 1
-        elif caracter < "0" or caracter > "9":
-            valido = False
+                    if caracter.isalpha():
+                        cant_letras += 1
+                    elif caracter in ".-_":
+                        caracter_especial += 1
+                    elif caracter < "0" or caracter > "9":
+                        valido = False
 
-    if cant_letras >= 6 and caracter_especial >= 1:
-        valido = True
+                    i += 1
+
+        if cant_letras >= 6 and caracter_especial >= 1:
+            valido = True
 
     return valido 
+

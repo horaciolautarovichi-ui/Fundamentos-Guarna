@@ -22,3 +22,32 @@ con el formato:
 
     Tipo - cantidad
 """
+
+def morfologica(frase_morfologica):
+
+    diccionario = {}
+    listado = []
+
+    for frase in frase_morfologica:
+
+        tipo =  frase[1]
+        palabra = frase[0].lower()
+        #si el tipo no esta en el diccionario lo creamos
+
+        if tipo not in diccionario:
+            diccionario[tipo] = [0, 0, 0, 0]
+        
+        if palabra[0].isalpha() and palabra[-1].isalpha() and palabra[0] not in "aeiouáéíóú" and palabra[-1] not in "aeiouáéíóú":
+            diccionario[tipo][0] += 1
+        elif palabra[0] in "aeiouáéíóú" and palabra[-1].isalpha() and palabra[-1] not in "aeiouáéíóú":
+            diccionario[tipo][1] += 1
+        elif palabra[0].isalpha() and palabra[0] not in "aeiouáéíóú" and palabra[-1] in "aeiouáéíóú":
+            diccionario[tipo][2] += 1
+        elif palabra[0] in "aeiouáéíóú" and palabra[-1] in "aeiouáéíóú":
+            diccionario[tipo][3] += 1
+            listado.append([tipo,palabra])
+    
+  
+    ordenado =  listado.sorterd()
+    print(ordenado)
+    return diccionario
