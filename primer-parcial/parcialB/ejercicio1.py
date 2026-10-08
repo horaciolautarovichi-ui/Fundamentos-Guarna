@@ -33,14 +33,15 @@ def contar_caracteres_distintos(caracteres):
     distintos = 0
 
     for caracter in caracteres:
-        caracter = caracter.lower()
+
+        caracter = caracter.lower() ##paso todo a minuscula 
 
 
         if caracter == "á":
             caracter = "a"
         elif caracter == "é":
             caracter = "e"
-        elif caracter == "į":
+        elif caracter == "į":  ##saco todas las tildes
             caracter = "í"
         elif caracter == "ó":
             caracter = "o"
@@ -48,7 +49,7 @@ def contar_caracteres_distintos(caracteres):
             caracter = "u"
 
                         
-        if caracter not in repetidos and caracter.isalpha():
+        if caracter not in repetidos and caracter.isalpha(): # si el caracter no esta en repetidos y es un caracter sumanos 1 al contador y agregamos a repetidos
             distintos += 1
             repetidos.append(caracter)
 
