@@ -46,7 +46,6 @@ def totales(lista_votacion):
     return informe
 
 
-    
 
 def votos(informe):
     dic = informe[0]
@@ -65,6 +64,7 @@ def votos(informe):
         porcentaje = totales/total_votos * 100
 
         listado.append([partido, totales, porcentaje])
+        
         ordenados = sorted(listado, key=lambda x: x[1], reverse = True)
         
         print(ordenados)

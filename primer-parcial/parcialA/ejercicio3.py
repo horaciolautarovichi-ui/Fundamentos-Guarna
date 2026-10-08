@@ -14,25 +14,50 @@ Procese esa lista y genere un diccionario con clave: puesto y valores: total_can
 
 Luego, debe mostrar por pantalla, los puestos y su promedio salarial, ordenados de mayor a menor por promedios salariales. La salida debe estar formateada, de forma que se visualice una columna para los puestos, y otra para el promedio salarial.
 """
+#from salarios import obtener_lista_salarios()
+def totales(salarios):
+    
+    dic = {}
+    for puesto in salarios:
+        nombre_puesto = puesto[1]
 
-def obtener_lista_salarios(salarios):
+        if nombre_puesto not in dic:
+            dic[nombre_puesto] = [0,0]
+
+            trabajadores = puesto[2]
+            sueldo = puesto[3]
+
+            dic[nombre_puesto][0] += trabajadores
+            dic[nombre_puesto][1] += sueldo
+
+    return dic
+
+def promedio(dic):
+
+    print("puesto - promedio salarial")
+    lista = []
+    
+    for puesto in dic:
+        total = dic[puesto][0]
+        sueldo = dic[puesto][1] #faltaria 
+        promedio = sueldo/total
+
+        lista.append([puesto, promedio])
+
+    ordenado = sorted(lista, key=lambda x: x[1], reverse = True)
+    print(ordenado[0],"-", ordenado[1])
+        
 
 
-    resultado = {} ##declaramos el diccionario resultado donde se almacena la info final
 
-    for salario in salarios: ##recorremos todos los puestos 
 
-        puesto = salario[1]
-        cantidad = salario[2]
-        sueldo = salario[3]
 
-        if puesto in resultado: ##si el puesto ya esta cargado sumamos la info
-            resultado[puesto][0] += cantidad
-            resultado[puesto][1] += cantidad * sueldo
-        else: ## sino lo creamos con la info del puesto actual
-            resultado[puesto] = [cantidad, cantidad * sueldo]
 
-    return resultado
+
+        
+
+
+
 
 
 
